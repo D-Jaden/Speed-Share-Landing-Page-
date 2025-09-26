@@ -1,0 +1,84 @@
+/* 3D Tube Scroll Effect Styles */
+:root {
+  --fontSize: 8; /* Adjust size as needed */
+}
+
+.top-container {
+  position: relative;
+  min-height: 200vh; /* Make it scrollable */
+  overflow: hidden;
+}
+
+.stage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 100vw;
+  perspective-origin: 50% 50%;
+}
+
+.tube__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  transform-origin: 50% 50% 0px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: 'Doto', sans-serif;
+  font-size: calc(var(--fontSize) * 1vw);
+  font-weight: 200;
+  font-stretch: 100%;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Style the original intro content to be below the 3D effect */
+.intro {
+  position: relative;
+  z-index: 5;
+  margin-top: 100vh; /* Push content down after the 3D effect */
+  padding: 2rem;
+  text-align: center;
+}
+
+.scroll-indicator {
+  position: relative;
+  z-index: 5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  :root {
+    --fontSize: 6;
+  }
+  
+  .line {
+    font-size: calc(var(--fontSize) * 2vw);
+  }
+}
