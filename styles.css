@@ -62,8 +62,8 @@ nav a {
 nav a:hover {
     background: linear-gradient(45deg, #e9e9e9, #ffffff);
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(77, 133, 255, 0.3);
-    color: rgb(0, 0, 0);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    color: rgb(0, 68, 255);
 }
 
 .scramble-text {
@@ -73,55 +73,63 @@ nav a:hover {
 /*========================= TOP CONTAINER ========================*/
 .top-container {
     display: flex;
-    justify-content: flex-start; 
-    align-items: flex-start;     
+    flex-direction: column;
+    justify-content: center;   
+    align-items: center;       
     width: 100%;
-    height: 75vh;
+    height: 100vh;
     background-color: black;
+    position: relative;
+    text-align: center; 
+    position: relative; 
+    top: 20%;
 }
 
 .intro {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
+    align-items: center;  
     gap: 1rem;                
     color: #ffffff;
     padding: 2rem;  
-    position: absolute;   
-    top:15%;      
+    z-index: 10;
+    position: relative; 
+    top: auto;          
 }
 
 .intro h1 {
-    font-size: 750%;
+    font-size: 7.5rem;
     font-family: 'Doto', sans-serif;
     font-weight: 800;
     margin: 0;
 }
 
 .intro h2 {
-    font-size: 600%;
+    font-size: 6rem;
     font-family: 'Doto', sans-serif;
     font-weight: 600;
     margin: 0;
 }
 
 .intro p {
-    font-size: 300%;
+    font-size: 3rem;
     font-weight: 200;
     font-family: 'WDXL Lubrifont TC', sans-serif;
     margin: 0;
 }
+
 .globe-container {
     position: absolute;
-    top: 10%;
-    left: 55%;
-    width: 40%; 
-    height: 60%;
+    bottom: -50%; /* Adjusted for slight visibility at bottom initially */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%; 
+    height: 60vh;
     border: none;
     /* Added properties for smooth animation */
     will-change: transform; /* Optimize for animations */
     transform-origin: center center; /* Set transform origin */
-    z-index: 5; /* Below intro text but above background */
+    z-index: 20; /* Increased to layer in front */
     transition: none; /* Let GSAP handle all transitions */
 }
 
@@ -132,7 +140,140 @@ nav a:hover {
     border-radius: 10px; /* Optional: rounded corners */
 }
 
-/*========================= ADDITIONAL CONTENT STYLES ========================*/
+/*=================TIMELINE==================*/
+
+.experience-map {
+    padding: 9.375rem 10% 6.25rem;
+    background: linear-gradient(180deg, rgb(62, 59, 253), rgba(255, 255, 255), rgb(62, 59, 253), rgb(255, 255, 255));
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+.experience-map h2{
+    font-family: 'Doto', sans-serif;
+    font-weight: 800;
+    position:absolute;
+    top:-3%; 
+}
+.map-title {
+    text-align: center;
+    font-size: clamp(2.5rem, 8vw, 8rem);
+    color: white;
+    margin-bottom: 6.25rem;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+}
+.timeline {
+    position: relative;
+    max-width: 75rem;
+    margin: 0 auto;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: linear-gradient(180deg, rgb(62, 59, 253), rgba(255, 255, 255), rgb(62, 59, 253), rgb(255, 255, 255));
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 6.25rem;
+    opacity: 0;
+    transform: translateY(50px);
+}
+.timeline-item:nth-child(odd) {
+    padding-right: 60%;
+}
+.timeline-item:nth-child(even) {
+    padding-left: 60%;
+}
+.timeline-content {
+    background: rgb(0, 0, 0);
+    border: 1px solid rgba(255, 255, 255, 0.822);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+}
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -20px;
+    border: 10px solid transparent;
+    border-left-color: rgba(255, 255, 255, 0.9);
+}
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -20px;
+    border: 10px solid transparent;
+    border-right-color: rgba(255, 255, 255, 0.9);
+}
+.timeline-marker {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #1f50ff, #4a5fff);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(77, 169, 255, 0.6);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+.timeline-marker:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+.timeline-year {
+    font-size: 2.8rem;
+    color: rgb(255, 255, 255);
+    margin-bottom: 0.9375rem;
+    font-weight: bold;
+}
+.timeline-title {
+    font-size: 2.1rem;
+    color: rgb(18, 121, 255);
+    margin-bottom: 1.25rem;
+}
+.timeline-description {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+.step-icon {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+
+/*====================== ADDITIONAL CONTENT STYLES ========================*/
 .additional-content {
     min-height: 100vh;
     background: linear-gradient(180deg, #000 0%, #333 50%, #666 100%);
@@ -182,6 +323,58 @@ nav a:hover {
     font-size: 1.1rem;
     line-height: 1.6;
     opacity: 0.9;
+}
+
+/*========================= CONTACT SECTION ========================*/
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    flex: 1 1 calc(33.333% - 3.5rem); /* 3 per row minus gap */
+    max-width: 350px; /* keeps them from stretching too big */
+    background: rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 2.5rem 1.875rem;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.contact-item h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1.25rem;
+    color: rgb(255, 255, 255);
+}
+
+.contact-item p {
+    font-size: 1.6rem;
+    color: rgb(255, 255, 255);
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #000000, rgb(0, 0, 0));
+    border: 3px solid rgb(255, 255, 255)
+}
+
+.contact-item:hover h3,
+.contact-item:hover p {
+    color: rgb(18, 121, 255);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(18, 121, 255);
+}
+
+.contact-item:hover a {
+    color: rgb(255, 255, 255);
 }
 /*========================= ADDITIONAL CONTENT STYLES ========================*/
 .additional-content {
@@ -305,7 +498,10 @@ nav a:hover {
 
 /*========================= SECTION STYLES ========================*/
 
-/* About Section */
+spacer {
+    height: 50vh;
+    background: #000;
+}
 #about {
     min-height: 100vh;
     background: linear-gradient(180deg, #000000 0%, #000000 100%);
@@ -313,57 +509,89 @@ nav a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
-
-#about .container {
+#about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(0, 0, 0, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+.about-container {
     max-width: 1200px;
     text-align: center;
     color: white;
+    position: relative;
+    z-index: 1;
 }
-
-#about h2 {
-    font-size: 4rem;
+.about-title {
+    font-size: clamp(4rem, 8vw, 8rem);
     font-family: 'Doto', sans-serif;
     margin-bottom: 2rem;
     color: #ffffff;
+    opacity: 0;
+    will-change: transform;
 }
-
-#about p {
-    font-size: 1.5rem;
+.about-description {
+    font-size: clamp(1.2rem, 3vw, 2rem);
     font-family: 'WDXL Lubrifont TC', sans-serif;
     line-height: 1.8;
-    opacity: 0.9;
+    opacity: 0;
     margin-bottom: 3rem;
+    will-change: transform;
 }
-
-#about .features-grid {
+.split {
+    opacity: 0;
+}
+.split * {
+    will-change: transform;
+}
+.line {
+    overflow: hidden;
+}
+.features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+    opacity: 0;
 }
-
-#about .feature-card {
+.feature-card {
     padding: 2rem;
     background: rgba(255,255,255,0.05);
     border-radius: 15px;
     border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    transform: translateY(50px);
+    opacity: 0;
 }
-
-#about .feature-card h3 {
+.feature-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+}
+.feature-card h3 {
     font-family: 'Doto', sans-serif;
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    background: linear-gradient(45deg, #fff, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
-
-#about .feature-card p {
+.feature-card p {
     font-family: 'WDXL Lubrifont TC', sans-serif;
     opacity: 0.8;
-    font-size: 1rem;
-    margin-bottom: 0;
+    line-height: 1.6;
 }
-
-/* Features Section */
+/*=====================Features Section====================*/
 #features {
     min-height: 100vh;
     background: linear-gradient(180deg, #000000 0%, #000000 100%);
@@ -542,7 +770,8 @@ nav a:hover {
     margin: 0;
 }
 
-/* Contact Section */
+/*========================= CONTACT SECTION ========================*/
+
 #contact {
     min-height: 100vh;
     background: linear-gradient(180deg, #777 0%, #999 100%);
@@ -624,7 +853,7 @@ nav a:hover {
     font-family: 'WDXL Lubrifont TC', sans-serif;
     opacity: 0.7;
     margin-bottom: 1rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 #contact .links {
@@ -647,19 +876,60 @@ nav a:hover {
     opacity: 1;
 }
 
-/* Footer */
 footer {
-    background: #000;
-    padding: 2rem;
     text-align: center;
+    padding: 3.75rem 0;
+    font-size: 1.5rem;
+    color: rgb(0, 110, 255);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    width: 100%;
 }
-
 footer p {
     color: white;
     font-family: 'WDXL Lubrifont TC', sans-serif;
     opacity: 0.7;
     margin: 0;
 }
+
+/*=================================*/
+/* VERTICAL TRANSITION */
+/*=================================*/
+
+.vertical-transition-container {
+    position: relative;
+    background: linear-gradient(180deg, rgb(53, 87, 222), rgba(102, 154, 180));
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.panel-6 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.panel-6 .panel-content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: none;
+    padding: 0 10%;
+}
+
+.panel-inner-center {
+    width: 100%;
+    text-align: center;
+}
+
 /*========================= RESPONSIVE DESIGN ========================*/
 @media (max-width: 768px) {
     .intro h1 {
@@ -727,4 +997,3 @@ footer p {
     opacity: 1;
     transition: opacity 1s ease-in-out;
 }
-
