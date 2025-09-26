@@ -3,12 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link href="https://fonts.googleapis.com/css2?family=Doto:wght@420;800&display=swap"rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+TC&display=swap" rel="stylesheet">
+    <!----------------Google Fonts------------>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@420;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+TC&display=swap" rel="stylesheet">
+
+    <!----------------Icon------------>
+    <link rel="shortcut icon" href="./icon.webp" type="image/x-icon">
+
+    <!--------------CSS--------------->
     <link rel="stylesheet" href="styles.css">
     <title>SPEED SHARE</title>
 </head>
 <body>
+
+    <!-------------------->
+    <!-- Navigation Bar -->
+    <!-------------------->
 
     <div class = "scramble-wrapper">  
         <div class="navigation-bar">
@@ -25,50 +35,63 @@
         </div>
     </div>
 
+    <!-------------------->
+    <!---INTRODUCTION----->
+    <!-------------------->
     <div class="top-container" id="home">
         <div class="intro">
             <h1>WELCOME TO</h1> 
             <h2>SPEED SHARE</h2>
             <p><b>Your go-to platform for fast and secure file sharing.</b></p>
         </div>
-
         <div class="globe-container">
             <iframe src="globe.html" frameborder="0" style="width:100%; height:100%;"></iframe> 
         </div>
-        
         <div class="scroll-indicator">
             Scroll Down ↓
         </div>
     </div>
+    
+    <!-------------------->
+    <!---ABOUT US--------->
+    <!-------------------->
 
-    <section id="about" style="min-height: 100vh; background: linear-gradient(180deg, #000000 0%, #000000 100%); padding: 4rem 2rem; display: flex; align-items: center; justify-content: center;">
-        <div style="max-width: 1200px; text-align: center; color: white;">
-            <h2 style="font-size: 4rem; font-family: 'Doto', sans-serif; margin-bottom: 2rem; color: #ffffff;">About Speed Share</h2>
-            <p style="font-size: 1.5rem; font-family: 'WDXL Lubrifont TC', sans-serif; line-height: 1.8; opacity: 0.9; margin-bottom: 3rem;">
+    <div class="spacer"></div>
+    
+    <section id="about">
+        <div class="about-container">
+            <h2 class="about-title split">ABOUT</h2>
+            <p class="about-description split">
                 Speed Share revolutionizes file sharing with cutting-edge technology that ensures your files are transferred at lightning speed while maintaining the highest security standards. Our global network spans across continents, providing seamless access to your data from anywhere in the world.
             </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <div style="padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                    <h3 style="font-family: 'Doto', sans-serif; font-size: 1.5rem; margin-bottom: 1rem;">🚀 Lightning Fast</h3>
-                    <p style="font-family: 'WDXL Lubrifont TC', sans-serif; opacity: 0.8;">Transfer files at unprecedented speeds with our optimized network infrastructure.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🚀 Lightning Fast</h3>
+                    <p>Transfer files at unprecedented speeds with our optimized network infrastructure.</p>
                 </div>
-                <div style="padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                    <h3 style="font-family: 'Doto', sans-serif; font-size: 1.5rem; margin-bottom: 1rem;">🔒 Secure</h3>
-                    <p style="font-family: 'WDXL Lubrifont TC', sans-serif; opacity: 0.8;">End-to-end encryption ensures your files remain private and protected.</p>
+                <div class="feature-card">
+                    <h3>🔒 Secure</h3>
+                    <p>End-to-end encryption ensures your files remain private and protected.</p>
                 </div>
-                <div style="padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                    <h3 style="font-family: 'Doto', sans-serif; font-size: 1.5rem; margin-bottom: 1rem;">🌍 Global</h3>
-                    <p style="font-family: 'WDXL Lubrifont TC', sans-serif; opacity: 0.8;">Access your files from anywhere in the world with our global server network.</p>
+                <div class="feature-card">
+                    <h3>🌍 Global</h3>
+                    <p>Access your files from anywhere in the world with our global server network.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <div class="spacer"></div>
+
+    <!-------------------->
+    <!---FEATURES--------->
+    <!--------------------> 
+
     <section id="features" style="min-height: 100vh; background: linear-gradient(180deg, #000000 0%, #000000 100%); padding: 4rem 2rem; display: flex; align-items: center; justify-content: center;">
         <div style="max-width: 1200px; text-align: center; color: white;">
-            <h2 style="font-size: 4rem; font-family: 'Doto', sans-serif; margin-bottom: 3rem; color: #ffffff;">Key Features</h2>
+            <h2 style="font-size: 4rem; font-family: 'Doto', sans-serif; margin-bottom: 3rem; color: #ffffff;">FEATURES</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem;">
-                <div style="padding: 3rem; background: rgba(255,255,255,0.08); border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(10px); transition: transform 0.3s ease;">
+                <div style="padding: 3rem; background: rgba(0, 0, 0, 0.08); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); transition: transform 0.3s ease;">
                     <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
                     <h3 style="font-family: 'Doto', sans-serif; font-size: 2rem; margin-bottom: 1rem;">Instant Upload</h3>
                     <p style="font-family: 'WDXL Lubrifont TC', sans-serif; font-size: 1.2rem; opacity: 0.9; line-height: 1.6;">
@@ -100,83 +123,155 @@
         </div>
     </section>
 
-    <section id="working" style="min-height: 100vh; background: linear-gradient(180deg, #000000 0%, #000000 100%); padding: 4rem 2rem; display: flex; align-items: center; justify-content: center;">
-        <div style="max-width: 1200px; text-align: center; color: white;">
-            <h2 style="font-size: 4rem; font-family: 'Doto', sans-serif; margin-bottom: 3rem; color: #ffffff;">How It Works</h2>
-            <div style="display: flex; justify-content: space-between; align-items: center; gap: 2rem; margin-top: 3rem;">
-                <div style="flex: 1; text-align: center; padding: 2rem;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2rem;">1</div>
-                    <h3 style="font-family: 'Doto', sans-serif; font-size: 1.5rem; margin-bottom: 1rem;">Upload Files</h3>
-                    <p style="font-family: 'WDXL Lubrifont TC', sans-serif; opacity: 0.9;">Drag and drop your files or click to browse and select.</p>
+    <!-------------------->
+    <!---HOW IT WORKS----->
+    <!-------------------->
+    <section class="experience-map" id="working">
+    <h2 class="map-title">HOW IT WORKS</h2>
+    
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-marker">1</div>
+            <div class="timeline-content">
+                <div class="timeline-year"><span class="step-icon">🔍</span>Peer Discovery</div>
+                <div class="timeline-description">
+                    <b>Connection Setup</b>: A unique code or QR is generated and shared with the recipient.
+                    WebRTC signaling with STUN/TURN servers establishes a direct peer-to-peer link.
                 </div>
-                <div style="font-size: 2rem; opacity: 0.5;">→</div>
-                <div style="flex: 1; text-align: center; padding: 2rem;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2rem;">2</div>
-                    <h3 style="font-family: 'Doto', sans-serif; font-size: 1.5rem; margin-bottom: 1rem;">Generate Link</h3>
-                    <p style="font-family: 'WDXL Lubrifont TC', sans-serif; opacity: 0.9;">Get a secure, shareable link instantly.</p>
+            </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">2</div>
+                <div class="timeline-content">
+                    <div class="timeline-year"><span class="step-icon">📤</span>File Transfer</div>
+                    <div class="timeline-description">
+                        <b>Chunked Transfer</b>: Files are split into configurable chunks for smooth, resumable transfers.  
+                        Data is sent over WebRTC Data Channels with <b>on-the-fly compression</b> to boost speed.
+                    </div>
                 </div>
-                <div style="font-size: 2rem; opacity: 0.5;">→</div>
-                <div style="flex: 1; text-align: center; padding: 2rem;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2rem;">3</div>
-                    <h3 style="font-family: 'Doto', sans-serif; font-size: 1.5rem; margin-bottom: 1rem;">Share & Download</h3>
-                    <p style="font-family: 'WDXL Lubrifont TC', sans-serif; opacity: 0.9;">Share the link and let others download at full speed.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">3</div>
+                <div class="timeline-content">
+                    <div class="timeline-year"><span class="step-icon">🔐</span>Security Layer</div>
+                    <div class="timeline-description">
+                        <b>End-to-End Encryption</b>: Files are encrypted before leaving the sender’s device 
+                        and decrypted only by the recipient. No server storage ensures <b>zero file retention</b>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">4</div>
+                <div class="timeline-content">
+                    <div class="timeline-year"><span class="step-icon">🌐</span>Cross-Platform Access</div>
+                    <div class="timeline-description">
+                        <b>Works Everywhere</b>: As a Progressive Web App (PWA), Speed Share runs on all modern 
+                        browsers and devices. A responsive UI with QR-based sharing ensures <b>ease of use</b>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">5</div>
+                <div class="timeline-content">
+                    <div class="timeline-year"><span class="step-icon">⚙️</span>User Controls</div>
+                    <div class="timeline-description">
+                        <b>Custom Preferences</b>: Recipients can set <b>maximum file size acceptance</b> 
+                        and configure sharing rules for better control over transfers.
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="feedback" style="min-height: 100vh; background: linear-gradient(180deg, #555 0%, #777 100%); padding: 4rem 2rem; display: flex; align-items: center; justify-content: center;">
+
+   
+    <!-------------------->
+    <!-----FEEDBACK------->
+    <!-------------------->
+
+    <section id="feedback" style="min-height: 100vh; background: linear-gradient(180deg, #000000 0%, #000000 100%); padding: 4rem 2rem; display: flex; align-items: center; justify-content: center;">
         <div style="max-width: 1200px; text-align: center; color: white;">
-            <h2 style="font-size: 4rem; font-family: 'Doto', sans-serif; margin-bottom: 3rem; color: #ffffff;">What Users Say</h2>
+            <h2 style="font-size: 6rem; font-family: 'Doto', sans-serif; margin-bottom: 3rem; color: #ffffff;">FEEDBACK</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
                 <div style="padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);">
-                    <p style="font-family: 'WDXL Lubrifont TC', sans-serif; font-size: 1.1rem; margin-bottom: 1rem; opacity: 0.9;">"Speed Share has revolutionized how we transfer large files. The speed is incredible!"</p>
-                    <h4 style="font-family: 'Doto', sans-serif;">- Sarah Johnson, Designer</h4>
+                    <p style="font-family: 'WDXL Lubrifont TC', sans-serif; font-size: 1.4rem; margin-bottom: 1rem; opacity: 0.9;">"Speed Share has revolutionized how we transfer large files. The speed is incredible!"</p>
+                    <h3 style="font-family: 'Doto', sans-serif;">- Sanjai</h3>
                 </div>
                 <div style="padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);">
-                    <p style="font-family: 'WDXL Lubrifont TC', sans-serif; font-size: 1.1rem; margin-bottom: 1rem; opacity: 0.9;">"The security features give us peace of mind when sharing sensitive documents."</p>
-                    <h4 style="font-family: 'Doto', sans-serif;">- Mike Chen, Developer</h4>
+                    <p style="font-family: 'WDXL Lubrifont TC', sans-serif; font-size: 1.4rem; margin-bottom: 1rem; opacity: 0.9;">"The security features give us peace of mind when sharing sensitive documents."</p>
+                    <h3 style="font-family: 'Doto', sans-serif;">- Koushik</h3>
                 </div>
                 <div style="padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);">
-                    <p style="font-family: 'WDXL Lubrifont TC', sans-serif; font-size: 1.1rem; margin-bottom: 1rem; opacity: 0.9;">"Global accessibility means I can access my files from anywhere. Amazing service!"</p>
-                    <h4 style="font-family: 'Doto', sans-serif;">- Elena Rodriguez, Marketing</h4>
+                    <p style="font-family: 'WDXL Lubrifont TC', sans-serif; font-size: 1.4rem; margin-bottom: 1rem; opacity: 0.9;">"Global accessibility means I can access my files from anywhere. Amazing service!"</p>
+                    <h3 style="font-family: 'Doto', sans-serif;">- Annand</h3>
+                </div>
+                <div style="padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);">
+                    <p style="font-family: 'WDXL Lubrifont TC', sans-serif; font-size: 1.4rem; margin-bottom: 1rem; opacity: 0.9;">"Global accessibility means I can access my files from anywhere. Amazing service!"</p>
+                    <h3 style="font-family: 'Doto', sans-serif;">- Vedant</h3>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-------------------->
+    <!-----CONTACTS------->
+    <!-------------------->
 
     <section id="contact" style="min-height: 100vh; background: linear-gradient(180deg, #000000 0%, #000000 100%); padding: 4rem 2rem; display: flex; align-items: center; justify-content: center;">
         <div style="max-width: 800px; text-align: center; color: white;">
-            <h2 style="font-size: 4rem; font-family: 'Doto', sans-serif; margin-bottom: 3rem; color: #ffffff;">Get Started Today</h2>
-            <p style="font-size: 1.5rem; font-family: 'WDXL Lubrifont TC', sans-serif; margin-bottom: 3rem; opacity: 0.9;">
+            <h2 style="font-size: 4.5rem; font-family: 'Doto', sans-serif; margin-bottom: 3rem; color: #ffffff;"><b>GET STARTED TODAY</b></h2>
+            <p style="font-size: 1.7rem; font-family: 'WDXL Lubrifont TC', sans-serif; margin-bottom: 3rem; opacity: 0.9;">
                 Join millions of users who trust Speed Share for their file sharing needs. Start sharing files at lightning speed with our secure platform.
             </p>
             <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
-                <button style="background: linear-gradient(45deg, #667eea, #764ba2); border: none; color: white; padding: 1rem 2rem; border-radius: 10px; font-family: 'Doto', sans-serif; font-size: 1.2rem; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);">
-                    Start Free Trial
+                <button style="background: linear-gradient(45deg, #2e89ff, #3766ff); border: none; color: white; padding: 1rem 2rem; border-radius: 10px; font-family: 'Doto', sans-serif; font-size: 1.2rem; cursor: pointer; transition: transform 0.3s ease;">
+                    <a href = "https://speed-share-git-beta-sanjai-shaarugeshs-projects.vercel.app" style="text-decoration: none; color: white;">
+                    <b>Start Sharing</b>
                 </button>
                 <button style="background: transparent; border: 2px solid white; color: white; padding: 1rem 2rem; border-radius: 10px; font-family: 'Doto', sans-serif; font-size: 1.2rem; cursor: pointer; transition: all 0.3s ease;">
-                    Learn More
+                    <b>Learn More</b>
                 </button>
             </div>
-            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(0, 0, 0, 0.2);">
+
+            <div style="margin-top: 2%; padding-top: 2rem; border-top: 1px solid rgba(0, 0, 0, 0.2);">
                 <p style="font-family: 'WDXL Lubrifont TC', sans-serif; opacity: 0.7; margin-bottom: 1rem;">
-                    Contact us: info@speedshare.com | +1 (555) 123-4567
+                    Contact us
                 </p>
-                <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
-                    <a href="#" style="color: white; opacity: 0.7; transition: opacity 0.3s ease; text-decoration: none;">Privacy Policy</a>
-                    <a href="#" style="color: white; opacity: 0.7; transition: opacity 0.3s ease; text-decoration: none;">Terms of Service</a>
-                    <a href="#" style="color: white; opacity: 0.7; transition: opacity 0.3s ease; text-decoration: none;">Support</a>
+                <div class="contact-info">
+                    <a href="https://www.linkedin.com/in/jaden-dutta-syiem-b71aa9309?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target = "_blank" class="contact-item">
+                        <h3>LinkedIn</h3>
+                        <p>Jaden Dutta Syiem</p>
+                    </a>
+                    <div class="contact-item">
+                        <h3>Gmail</h3>
+                        <p>jadedsyiem@gmail.com</p>
+                    </div>
+                    <a href="https://github.com/D-Jaden" target = "_blank" class="contact-item">
+                        <h3>GitHub</h3>
+                        <p>D-Jaden</p>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-------------------->
+    <!-----FOOTER--------->
+    <!-------------------->
+
     <footer style="background: #000; padding: 2rem; text-align: center;">
         <p style="color: white; font-family: 'WDXL Lubrifont TC', sans-serif; opacity: 0.7;">
-            © 2025 Speed Share. All rights reserved. Designed with ❤️ for fast file sharing.
+            © 2025 Speed Share. All rights reserved.
         </p>
     </footer>
+
+    <!-------------------->
+    <!-------LINKS-------->
+    <!-------------------->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -184,6 +279,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/EasePack.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrambleTextPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    
     <script src="main.js"></script>
 </body>
 </html>
