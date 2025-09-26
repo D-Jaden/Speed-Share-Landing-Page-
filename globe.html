@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Black and White Wireframe Globe with Countries and Grid</title>
+    <style>
+        body { margin: 0; overflow: hidden; background: #000; }
+        canvas { display: block; }
+        #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-family: Arial, sans-serif; }
+        #error { position: absolute; top: 60%; left: 50%; transform: translateX(-50%); color: #ff0000; font-family: Arial, sans-serif; display: none; }
+    </style>
+</head>
+<body>
+    <div id="loading">Loading globe data...</div>
+    <div id="error"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script>
+        // Scene setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Stars background
+        const starsGeometry = new THREE.BufferGeometry();
+        const starsVertices = [];
+        for (let i = 0; i < 10000; i++) {
+            const x = THREE.MathUtils.randFloatSpread(4000);
+            const y = THREE.MathUtils.randFloatSpread(4000);
+            const z = THREE.MathUtils.randFloatSpread(4000);
+            starsVertices.push(x, y, z);
+        }
+        starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starsVertices, 3));
+        const starsMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.5 });
+        const stars = new THREE.Points(starsGeometry, starsMaterial);
+        scene.add(stars);
+
+        // Spherical grid lines
+        const gridGroup = new THREE.Group();
+        const radius = 5;
+        const numMeridians = 24; // Every 15 degrees
+        const numParallels = 17; // Every 10 degrees from -80 to 80
+        const gridMaterial = new THREE.LineBasicMaterial({ 
+            color: 0xffffff, 
+            transparent: true, 
+            opacity: 0.3 
+        });
+
+        // Meridians (longitude lines)
+        for (let i = 0; i < numMeridians; i++) {
+            const lon = -180 + (i * (360 / numMeridians));
+            const theta = (lon + 180) * (Math.PI / 180);
+            const points = [];
+            const steps = 180; // 1-degree steps for smoothness
+            for (let j = 0; j <= steps; j++) {
+                const lat = -90 + (j * (180 / steps));
+                const phi = (90 - lat) * (Math.PI / 180);
+                const x = -radius * Math.sin(phi) * Math.cos(theta);
+                const y = radius * Math.cos(phi);
+                const z = radius * Math.sin(phi) * Math.sin(theta);
+                points.push(new THREE.Vector3(x, y, z));
+            }
+            const geometry = new THREE.BufferGeometry().setFromPoints(points);
+            const line = new THREE.Line(geometry, gridMaterial);
+            gridGroup.add(line);
+        }
+
+        // Parallels (latitude lines)
+        for (let k = 0; k < numParallels; k++) {
+            const lat = -80 + (k * 10);
+            const phi = (90 - lat) * (Math.PI / 180);
+            const y = radius * Math.cos(phi);
+            const r = radius * Math.sin(phi);
+            const points = [];
+            const numPoints = 64;
+            for (let i = 0; i <= numPoints; i++) {
+                const theta = (i / numPoints) * 2 * Math.PI;
+                const x = -r * Math.cos(theta);
+                const z = r * Math.sin(theta);
+                points.push(new THREE.Vector3(x, y, z));
+            }
+            const geometry = new THREE.BufferGeometry().setFromPoints(points);
+            const line = new THREE.Line(geometry, gridMaterial);
+            gridGroup.add(line);
+        }
+
+        scene.add(gridGroup);
+
+        // Camera position
+        camera.position.z = 9;
+
+        // OrbitControls
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.rotateSpeed = 0.5;
+        controls.enableZoom = true;
+        controls.enablePan = false;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 1.0;
+
+        // Helper function to convert lat/lon to 3D points with robust coordinate handling
+        function createShapeFromCoords(coords) {
+            const shape = [];
+            const processCoords = (coordArray) => {
+                if (!Array.isArray(coordArray) || coordArray.length < 2) return;
+                if (typeof coordArray[0] === 'number' && coordArray.length === 2) {
+                    const [lon, lat] = coordArray;
+                    const phi = (90 - lat) * (Math.PI / 180);
+                    const theta = (lon + 180) * (Math.PI / 180);
+                    const radius = 5;
+                    const x = -radius * Math.sin(phi) * Math.cos(theta);
+                    const y = radius * Math.cos(phi);
+                    const z = radius * Math.sin(phi) * Math.sin(theta);
+                    shape.push(new THREE.Vector3(x, y, z));
+                } else {
+                    coordArray.forEach(subArray => processCoords(subArray));
+                }
+            };
+            processCoords(coords);
+            if (shape.length > 0) {
+                shape.push(shape[0].clone());
+            }
+            return shape;
+        }
+
+        // Function to load and render GeoJSON
+        function loadGeoJSON(url) {
+            const loader = new THREE.FileLoader();
+            loader.load(url, function(data) {
+                const geojson = JSON.parse(data);
+                const countriesGroup = new THREE.Group();
+
+                geojson.features.forEach((feature) => {
+                    const coordinates = feature.geometry.coordinates;
+                    const lineMaterial = new THREE.LineBasicMaterial({ 
+                        color: 0xffffff, 
+                        linewidth: 1,
+                        transparent: true,
+                        opacity: 0.8 
+                    });
+
+                    if (feature.geometry.type === 'Polygon') {
+                        coordinates.forEach((ring) => {
+                            const shape = createShapeFromCoords(ring);
+                            if (shape.length > 1) {
+                                const lineGeometry = new THREE.BufferGeometry().setFromPoints(shape);
+                                const line = new THREE.Line(lineGeometry, lineMaterial);
+                                countriesGroup.add(line);
+                            }
+                        });
+                    } else if (feature.geometry.type === 'MultiPolygon') {
+                        coordinates.forEach((polygon) => {
+                            polygon.forEach((ring) => {
+                                const shape = createShapeFromCoords(ring);
+                                if (shape.length > 1) {
+                                    const lineGeometry = new THREE.BufferGeometry().setFromPoints(shape);
+                                    const line = new THREE.Line(lineGeometry, lineMaterial);
+                                    countriesGroup.add(line);
+                                }
+                            });
+                        });
+                    }
+                });
+
+                countriesGroup.scale.set(1.1, 1.1, 1.1);
+                scene.add(countriesGroup);
+                document.getElementById('loading').style.display = 'none';
+            }, undefined, function(error) {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error').textContent = 'Failed to load globe data. Check console for details.';
+                console.error('GeoJSON load error:', error);
+                const geometry = new THREE.SphereGeometry(5, 32, 32);
+                const material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true });
+                const fallbackGlobe = new THREE.Mesh(geometry, material);
+                scene.add(fallbackGlobe);
+            });
+        }
+        
+        // Load the GeoJSON data
+        loadGeoJSON('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json');
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>

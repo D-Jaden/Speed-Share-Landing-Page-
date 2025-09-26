@@ -1,0 +1,730 @@
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    overflow-x: hidden !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+    font-family: 'Bebas Neue', sans-serif;
+    color: rgb(0, 0, 0);
+    overflow-x: hidden !important; 
+    line-height: 1.6;
+    width: 100%; 
+}
+/*========================= NAVBAR ========================*/  
+
+.navigation-bar {
+    position: fixed;
+    top: 2vh; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px; /* smaller roundness */
+    border: 2px solid transparent; 
+    background: 
+        linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)) padding-box,
+        linear-gradient(75deg, #ffffff, #dbdbdb) border-box;
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    padding: 6px 12px; 
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0.5rem 1rem;
+    gap: 10px;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    font-family: 'Doto';
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.45rem;
+    transition: all 0.4s ease;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+nav a:hover {
+    background: linear-gradient(45deg, #e9e9e9, #ffffff);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(77, 133, 255, 0.3);
+    color: rgb(0, 0, 0);
+}
+
+.scramble-text {
+    display: inline-block; 
+}
+
+/*========================= TOP CONTAINER ========================*/
+.top-container {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: flex-start;     
+    width: 100%;
+    height: 75vh;
+    background-color: black;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 1rem;                
+    color: #ffffff;
+    padding: 2rem;  
+    position: absolute;   
+    top:15%;      
+}
+
+.intro h1 {
+    font-size: 750%;
+    font-family: 'Doto', sans-serif;
+    font-weight: 800;
+    margin: 0;
+}
+
+.intro h2 {
+    font-size: 600%;
+    font-family: 'Doto', sans-serif;
+    font-weight: 600;
+    margin: 0;
+}
+
+.intro p {
+    font-size: 300%;
+    font-weight: 200;
+    font-family: 'WDXL Lubrifont TC', sans-serif;
+    margin: 0;
+}
+.globe-container {
+    position: absolute;
+    top: 10%;
+    left: 55%;
+    width: 40%; 
+    height: 60%;
+    border: none;
+    /* Added properties for smooth animation */
+    will-change: transform; /* Optimize for animations */
+    transform-origin: center center; /* Set transform origin */
+    z-index: 5; /* Below intro text but above background */
+    transition: none; /* Let GSAP handle all transitions */
+}
+
+.globe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px; /* Optional: rounded corners */
+}
+
+/*========================= ADDITIONAL CONTENT STYLES ========================*/
+.additional-content {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #000 0%, #333 50%, #666 100%);
+    padding: 4rem 2rem;
+}
+
+.additional-content h2 {
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-family: 'Doto', sans-serif;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    color: white;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+}
+
+.feature-card h3 {
+    font-family: 'Doto', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.feature-card p {
+    font-family: 'WDXL Lubrifont TC', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+/*========================= ADDITIONAL CONTENT STYLES ========================*/
+.additional-content {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #000 0%, #333 50%, #666 100%);
+    padding: 4rem 2rem;
+}
+
+.additional-content h2 {
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-family: 'Doto', sans-serif;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    color: white;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+}
+
+.feature-card h3 {
+    font-family: 'Doto', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.feature-card p {
+    font-family: 'WDXL Lubrifont TC', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/*========================= RESPONSIVE DESIGN ========================*/
+@media (max-width: 768px) {
+    .intro h1 {
+        font-size: 400%;
+    }
+    
+    .intro h2 {
+        font-size: 300%;
+    }
+    
+    .intro p {
+        font-size: 150%;
+    }
+    
+    .globe-container {
+        width: 80%;
+        height: 40%;
+        left: 10%;
+        top: 50%;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    nav a {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+/*========================= SCROLL INDICATOR ========================*/
+.scroll-indicator {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: 'Doto', sans-serif;
+    font-size: 1rem;
+    opacity: 0.7;
+    z-index: 100;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/*========================= LOADING STATES ========================*/
+.globe-container.loading {
+    opacity: 0.5;
+}
+
+.globe-container.loaded {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+/*========================= SECTION STYLES ========================*/
+
+/* About Section */
+#about {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #000000 0%, #000000 100%);
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#about .container {
+    max-width: 1200px;
+    text-align: center;
+    color: white;
+}
+
+#about h2 {
+    font-size: 4rem;
+    font-family: 'Doto', sans-serif;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+#about p {
+    font-size: 1.5rem;
+    font-family: 'WDXL Lubrifont TC', sans-serif;
+    line-height: 1.8;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+}
+
+#about .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+#about .feature-card {
+    padding: 2rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+#about .feature-card h3 {
+    font-family: 'Doto', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#about .feature-card p {
+    font-family: 'WDXL Lubrifont TC', sans-serif;
+    opacity: 0.8;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+/* Features Section */
+#features {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #000000 0%, #000000 100%);
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#features .container {
+    max-width: 1200px;
+    text-align: center;
+    color: white;
+}
+
+#features h2 {
+    font-size: 4rem;
+    font-family: 'Doto', sans-serif;
+    margin-bottom: 3rem;
+    color: #ffffff;
+}
+
+#features .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+#features .feature-card {
+    padding: 3rem;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+#features .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+}
+
+#features .feature-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#features .feature-card h3 {
+    font-family: 'Doto', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#features .feature-card p {
+    font-family: 'WDXL Lubrifont TC', sans-serif;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Working Section */
+#working {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #000000 0%, #000000 100%);
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#working .container {
+    max-width: 1200px;
+    text-align: center;
+    color: white;
+}
+
+#working h2 {
+    font-size: 4rem;
+    font-family: 'Doto', sans-serif;
+    margin-bottom: 3rem;
+    color: #ffffff;
+}
+
+#working .steps-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+#working .step {
+    flex: 1;
+    text-align: center;
+    padding: 2rem;
+}
+
+#working .step-number {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+#working .step h3 {
+    font-family: 'Doto', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#working .step p {
+    font-family: 'WDXL Lubrifont TC', sans-serif;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+#working .arrow {
+    font-size: 2rem;
+    opacity: 0.5;
+}
+
+/* Feedback Section */
+#feedback {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #555 0%, #777 100%);
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#feedback .container {
+    max-width: 1200px;
+    text-align: center;
+    color: white;
+}
+
+#feedback h2 {
+    font-size: 4rem;
+    font-family: 'Doto', sans-serif;
+    margin-bottom: 3rem;
+    color: #ffffff;
+}
+
+#feedback .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+#feedback .testimonial {
+    padding: 2rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+#feedback .testimonial p {
+    font-family: 'WDXL Lubrifont TC', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+#feedback .testimonial h4 {
+    font-family: 'Doto', sans-serif;
+    margin: 0;
+}
+
+/* Contact Section */
+#contact {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #777 0%, #999 100%);
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#contact .container {
+    max-width: 800px;
+    text-align: center;
+    color: white;
+}
+
+#contact h2 {
+    font-size: 4rem;
+    font-family: 'Doto', sans-serif;
+    margin-bottom: 3rem;
+    color: #ffffff;
+}
+
+#contact p {
+    font-size: 1.5rem;
+    font-family: 'WDXL Lubrifont TC', sans-serif;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+#contact .buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#contact .btn-primary {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-family: 'Doto', sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+#contact .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+#contact .btn-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-family: 'Doto', sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#contact .btn-secondary:hover {
+    background: white;
+    color: #777;
+}
+
+#contact .contact-info {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+#contact .contact-info p {
+    font-family: 'WDXL Lubrifont TC', sans-serif;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+#contact .links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+#contact .links a {
+    color: white;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    text-decoration: none;
+    font-family: 'WDXL Lubrifont TC', sans-serif;
+}
+
+#contact .links a:hover {
+    opacity: 1;
+}
+
+/* Footer */
+footer {
+    background: #000;
+    padding: 2rem;
+    text-align: center;
+}
+
+footer p {
+    color: white;
+    font-family: 'WDXL Lubrifont TC', sans-serif;
+    opacity: 0.7;
+    margin: 0;
+}
+/*========================= RESPONSIVE DESIGN ========================*/
+@media (max-width: 768px) {
+    .intro h1 {
+        font-size: 400%;
+    }
+    
+    .intro h2 {
+        font-size: 300%;
+    }
+    
+    .intro p {
+        font-size: 150%;
+    }
+    
+    .globe-container {
+        width: 80%;
+        height: 40%;
+        left: 10%;
+        top: 50%;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    nav a {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+/*========================= SCROLL INDICATOR ========================*/
+.scroll-indicator {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: 'Doto', sans-serif;
+    font-size: 1rem;
+    opacity: 0.7;
+    z-index: 100;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/*========================= LOADING STATES ========================*/
+.globe-container.loading {
+    opacity: 0.5;
+}
+
+.globe-container.loaded {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
