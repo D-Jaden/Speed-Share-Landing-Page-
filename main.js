@@ -44,54 +44,6 @@ scrambleElements.forEach((element) => {
     });
 });
 
-//========================================//
-//=========HEADING SCROLL EFFECT==========//
-//========================================//
-/*
-const element1 = document.getElementById('home');
-const originalText = element1.textContent;
-
-function splitText() {
-    element1.innerHTML = '';
-    for (let i = 0; i < originalText.length; i++) {
-        const char = originalText[i];
-        const span = document.createElement('span');
-        span.className = 'char';
-        if (char === ' ') {
-            span.innerHTML = '&nbsp;';
-        } else {
-            span.textContent = char;
-        }
-        element1.appendChild(span);
-    }
-    gsap.set(element1, { opacity: 1 });
-    animateText();
-}
-    
-function animateText() {
-    gsap.set(".char", { 
-        y: 115,
-        opacity: 0
-    });
-    
-   gsap.to(".char", {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        stagger: 0.05,
-        ease: "back.out(1.2)",
-        scrollTrigger: {
-            trigger: element1,
-            start: "top 0%",
-            toggleActions: "restart reset restart reset"
-        }
-    });
-}
-    
-splitText();
-*/
-
-
 gsap.registerPlugin(ScrollTrigger);
 
 // Mock SplitText functionality for demonstration
