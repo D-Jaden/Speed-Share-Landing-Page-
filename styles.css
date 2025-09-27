@@ -143,7 +143,7 @@ nav a:hover {
 
 .experience-map {
     padding: 9.375rem 10% 6.25rem;
-    background: linear-gradient(180deg, rgb(0, 163, 8), rgb(255, 255, 255), rgb(0, 163, 8), rgb(255, 255, 255));
+    background: linear-gradient(180deg, rgb(0, 21, 211), rgb(255, 255, 255), rgb(0, 21, 211), rgb(255, 255, 255));
     position: relative;
     z-index: 10;
     width: 100%;
@@ -175,7 +175,7 @@ nav a:hover {
     content: '';
     position: absolute;
     width: 4px;
-    background: linear-gradient(180deg, rgb(0, 163, 8), rgb(255, 255, 255), rgb(0, 163, 8), rgb(255, 255, 255));
+    background: linear-gradient(180deg, rgb(36, 58, 255), rgb(255, 255, 255), rgb(36, 58, 255), rgb(255, 255, 255));
     top: 0;
     bottom: 0;
     left: 50%;
@@ -229,13 +229,12 @@ nav a:hover {
     position: absolute;
     width: 50px;
     height: 50px;
-    background: linear-gradient(45deg, #1f50ff, #4a5fff);
+    background: linear-gradient(45deg, rgb(0, 21, 211), rgb(63, 83, 255));
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     z-index: 10;
-    box-shadow: 0 0 20px rgba(77, 169, 255, 0.6);
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
@@ -307,7 +306,7 @@ nav a:hover {
 
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgb(0, 0, 0);
 }
 
 .feature-card h3 {
@@ -460,6 +459,7 @@ a {
 }
 
 /*========================= SCROLL INDICATOR ========================*/
+
 .scroll-indicator {
     position: fixed;
     bottom: 2rem;
@@ -486,6 +486,7 @@ a {
 }
 
 /*========================= LOADING STATES ========================*/
+
 .globe-container.loading {
     opacity: 0.5;
 }
@@ -769,6 +770,12 @@ spacer {
     margin: 0;
 }
 
+.share_btn:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
+    color:white;
+}
+
 /*========================= CONTACT SECTION ========================*/
 
 #contact {
@@ -931,6 +938,7 @@ footer p {
 }
 
 /*========================= RESPONSIVE DESIGN ========================*/
+
 @media (max-width: 768px) {
     .intro h1 {
         font-size: 400%;
@@ -963,6 +971,7 @@ footer p {
 }
 
 /*========================= SCROLL INDICATOR ========================*/
+
 .scroll-indicator {
     position: fixed;
     bottom: 2rem;
