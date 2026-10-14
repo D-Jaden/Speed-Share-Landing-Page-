@@ -250,7 +250,7 @@ gsap.utils.toArray('.timeline-item').forEach((item, index) => {
             
             // Add pulsing effect to marker
             gsap.to(marker, {
-                boxShadow: "0 0 30px rgba(255, 122, 0, 0.8), 0 0 60px rgba(255, 180, 0, 0.6)",
+                boxShadow: "0 0 30px rgba(255, 30, 40, 0.8), 0 0 60px rgba(255, 70, 80, 0.6)",
                 duration: 0.3,
                 delay: 0.8,
                 yoyo: true,
