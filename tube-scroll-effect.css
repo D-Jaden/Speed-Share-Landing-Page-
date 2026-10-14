@@ -63,7 +63,7 @@
   position: relative;
   z-index: 5;
   margin-top: 100vh; /* Push content down after the 3D effect */
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   text-align: center;
 }
 
@@ -75,10 +75,20 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   :root {
-    --fontSize: 6;
+    --fontSize: 9;
   }
   
   .line {
-    font-size: calc(var(--fontSize) * 2vw);
+    font-size: calc(var(--fontSize) * 1vw);
+  }
+
+  .intro {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --fontSize: 8.5;
   }
 }
