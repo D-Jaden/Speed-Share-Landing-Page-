@@ -390,7 +390,7 @@ nav a:hover {
 
 .experience-map {
     padding: 8rem 10% 6rem;
-    background: linear-gradient(180deg, #ff7a00, #ffffff, #ff9100, #ffffff);
+    background: linear-gradient(180deg, #000000 0%, #000000 100%);
     position: relative;
     z-index: 10;
     width: 100%;
@@ -421,13 +421,13 @@ nav a:hover {
     content: '';
     position: absolute;
     width: 4px;
-    background: linear-gradient(180deg, #ff7a00, #ffffff, #ff9100, #ffffff);
+    background: linear-gradient(180deg, #ff1e27, #ff4d4d, #cc0000, #ff1e27);
     top: 0;
     bottom: 0;
     left: 50%;
     margin-left: -2px;
     border-radius: 2px;
-    box-shadow: 0 0 10px rgba(255, 122, 0, 0.5);
+    box-shadow: 0 0 12px rgba(255, 30, 39, 0.6);
 }
 
 .timeline-item {
@@ -458,8 +458,8 @@ nav a:hover {
 
 .timeline-content:hover {
     transform: translateY(-5px);
-    border-color: #ff9100;
-    box-shadow: 0 10px 30px rgba(255, 122, 0, 0.25);
+    border-color: #ff2a2a;
+    box-shadow: 0 10px 30px rgba(255, 42, 42, 0.3);
 }
 
 .timeline-content::before {
@@ -483,11 +483,19 @@ nav a:hover {
     border-right-color: rgba(255, 255, 255, 0.9);
 }
 
+.timeline-item:nth-child(odd) .timeline-content:hover::before {
+    border-left-color: #ff2a2a;
+}
+
+.timeline-item:nth-child(even) .timeline-content:hover::before {
+    border-right-color: #ff2a2a;
+}
+
 .timeline-marker {
     position: absolute;
     width: 50px;
     height: 50px;
-    background: linear-gradient(45deg, #ff5500, #ffb300);
+    background: linear-gradient(45deg, #d60000, #ff3344);
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -501,11 +509,12 @@ nav a:hover {
     font-weight: bold;
     font-size: 1.5rem;
     border: 3px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 0 15px rgba(255, 122, 0, 0.4);
+    box-shadow: 0 0 16px rgba(255, 30, 40, 0.5);
 }
 
 .timeline-marker:hover {
     transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 25px rgba(255, 40, 50, 0.8);
 }
 
 .timeline-year {
@@ -517,7 +526,7 @@ nav a:hover {
 
 .timeline-title {
     font-size: 1.8rem;
-    color: #ff9100;
+    color: #ff2a2a;
     margin-bottom: 1.25rem;
 }
 
@@ -873,6 +882,12 @@ footer p {
         right: auto;
         border: 6px solid transparent;
         border-right-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content:hover::before,
+    .timeline-item:nth-child(even) .timeline-content:hover::before {
+        border-right-color: #ff2a2a;
+        border-left-color: transparent;
     }
 
     .timeline-year {
