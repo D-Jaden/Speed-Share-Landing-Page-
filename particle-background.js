@@ -131,6 +131,19 @@ class ParticleSystem {
       this.mouse.x = -100;
       this.mouse.y = -100;
     });
+
+    this.canvas.parentElement.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches.length > 0) {
+        const rect = this.canvas.getBoundingClientRect();
+        this.mouse.x = e.touches[0].clientX - rect.left;
+        this.mouse.y = e.touches[0].clientY - rect.top;
+      }
+    }, { passive: true });
+
+    this.canvas.parentElement.addEventListener('touchend', () => {
+      this.mouse.x = -100;
+      this.mouse.y = -100;
+    });
   }
 }
 
