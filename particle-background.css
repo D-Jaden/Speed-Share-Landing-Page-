@@ -1,7 +1,6 @@
 /* Particle Background Styles for Top Container */
 .top-container {
     position: relative; 
-    top: 20%;
     overflow: hidden;
 }
 
