@@ -250,7 +250,7 @@ gsap.utils.toArray('.timeline-item').forEach((item, index) => {
             
             // Add pulsing effect to marker
             gsap.to(marker, {
-                boxShadow: "0 0 30px rgba(77, 169, 255, 0.8), 0 0 60px rgba(31, 80, 255, 0.6)",
+                boxShadow: "0 0 30px rgba(255, 122, 0, 0.8), 0 0 60px rgba(255, 180, 0, 0.6)",
                 duration: 0.3,
                 delay: 0.8,
                 yoyo: true,
@@ -337,15 +337,27 @@ document.querySelectorAll('.timeline-marker').forEach(marker => {
         });
     });
 });
-// Globe parallax effect
-gsap.to(".globe-container", {
-  bottom: "100%",
-  ease: "none",
-  scrollTrigger: {
-    trigger: ".top-container",
-    start: "top top",
-    end: "bottom top",
-    scrub: true,
-    invalidateOnRefresh: true
-  }
-});
+
+// Mobile navigation toggle
+const navToggle = document.getElementById('nav-toggle');
+const navBar = document.querySelector('.navigation-bar');
+const navLinks = document.querySelectorAll('.nav-menu a');
+
+if (navToggle && navBar) {
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navBar.classList.toggle('active');
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navBar.classList.remove('active');
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!navBar.contains(e.target)) {
+            navBar.classList.remove('active');
+        }
+    });
+}
